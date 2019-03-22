@@ -1,3 +1,138 @@
 @import "vars";
 @import "fonts";
 
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  line-height: 18px;
+  font-family: $roboto;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+
+.header__top {
+  background-color: #303030;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__contacts {
+  display: flex;
+}
+
+.header__phone a,
+.header__mail a{
+  padding-left: 20px;
+  position: relative;
+  color: #d3d2d2;
+  line-height: 45px;
+}
+
+.header__phone { 
+  margin-right: 34px;
+}
+
+.header__phone a::before,
+.header__mail a::before,
+.header__btn-consalt::after {
+  position: absolute;
+  font-family: 'icomoon';
+  left: 0;
+  color: $yellow;
+}
+
+.header__phone a::before {
+  content: '\f095';
+}
+
+.header__mail a::before {
+  content: '\f003';
+}
+
+.header__btn-consalt {
+  outline: none;
+  background-color: $yellow;
+  border: none;
+  padding: 0 21px 0 48px;
+  position: relative;
+  font-size: 16px;
+  line-height: 36px;
+  cursor: pointer;
+}
+
+.header__btn-consalt::after {
+  content: '\f0b1';
+  color: #1b1b1b;
+  left: 21px;
+  top: 5px;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 36px;
+  padding: 34px 0 23px;
+}
+
+.header__logo { 
+  font-size: 30px;
+  line-height: 18px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: $yellow;
+}
+
+.header__logo span {
+  font-weight: 300;
+  color: #212020;
+}
+
+nav.menu ul {
+  display: flex;
+  list-style: none;
+}
+
+nav.menu a {
+  font-size: 16px;
+  color: #323232;
+  padding: 7.5px 17px;
+  border: 1px solid #fff;
+  margin-left: 10px;
+}
+
+nav.menu a:hover {
+  border: 1px solid $yellow;
+}
+
+.main__slider {
+  text-align: center;
+}
+
+.main__slider__iteam {
+  display: flex;
+  flex-direction: column;
+}
+
