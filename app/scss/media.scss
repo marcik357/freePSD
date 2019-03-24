@@ -1,0 +1,47 @@
+@media (max-width: 1200px) {
+  .consult {
+    padding-bottom: 40px;
+    & img {
+    display: none;;
+    }
+  }
+}
+
+
+
+
+
+@media (max-width: 769px) {
+
+  .header__top {
+    display: none;
+  }
+
+  .menu ul {
+    display: none;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: #fff;
+    flex-direction: column;
+  }
+
+  .menu li {
+    display: block;
+  }
+
+  .menu li+li {
+    padding: 0;
+  }
+
+  .menu a {
+    display: block;
+    padding: 10px 0;
+  }
+
+  .menu__btn {
+    display: block;
+  }
+}

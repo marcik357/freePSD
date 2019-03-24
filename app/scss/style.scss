@@ -6,7 +6,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  transition: .3s;
+  transition: .3s linear;
 }
 
 body {
@@ -53,39 +53,39 @@ button {
   display: flex;
 }
 
-.header__phone a,
-.header__mail a{
+.phone,
+.mail {
   padding-left: 20px;
   position: relative;
-  color: #d3d2d2;
+  color: $lgray;
   line-height: 45px;
 }
 
-.header__phone { 
+.phone { 
   margin-right: 34px;
 }
 
-.header__phone a::before,
-.header__mail a::before,
-.header__btn-consalt::after {
+.phone::before,
+.mail::before,
+.btn-consalt::after {
   position: absolute;
   font-family: 'icomoon';
   left: 0;
   color: $yellow;
 }
 
-.header__phone a::before {
+.phone::before {
   content: '\f095';
 }
 
-.header__mail a::before {
+.mail::before {
   content: '\f003';
 }
 
-.header__btn-consalt {
+.btn-consalt {
   background-color: $yellow;
   border: none;
-  padding: 0 21px 0 48px;
+  padding: 5px 21px 5px 48px;
   position: relative;
   font-size: 16px;
   line-height: 36px;
@@ -130,11 +130,20 @@ nav.menu a {
   font-size: 16px;
   color: #323232;
   padding: 7.5px 17px;
-  border: 1px solid #fff;
+  border: 1px solid transparent;
   margin-left: 10px;
   &:hover {
     border: 1px solid $yellow;
   }
+}
+
+.menu__btn {
+  display: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: $yellow;
+  z-index: 100;
 }
 
 
@@ -160,7 +169,8 @@ nav.menu a {
 
 .slick-btn {
   position: absolute;
-  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
   width: 40px;
   height: 40px;
   background-color: transparent;
@@ -171,6 +181,14 @@ nav.menu a {
   &:hover {
     background-color: $yellow;
   }
+}
+
+.slick-prev{
+  left: 50px;
+}
+
+.slick-next {
+  right: 50px;
 }
 
 .slick-prev::before {
@@ -193,7 +211,7 @@ nav.menu a {
   font-family: $pt-serif;
   font-size: 18px;
   line-height: 24px;
-  color: #d3d2d2;
+  color: $lgray;
   max-width: 660px;
   margin: 0 auto;
   margin-bottom: 45px;
@@ -205,6 +223,20 @@ nav.menu a {
   color: #fff;
   padding: 10px 20px;
   font-weight: 500;
+  margin-right: 21px;
+  position: relative;
+  &::before {
+    position: absolute;
+    font-family: 'icomoon';
+    content: '\f105';
+    font-weight: 400;
+    line-height: 38px;
+    width: 21px;
+    background-color: $yellow;
+    right: 0;
+    top: -1px;
+    transform: translateX(100%);
+  }
 }
 
 
@@ -259,24 +291,41 @@ nav.menu a {
 }
 
 .services_wrapper {
-  margin: 0 -15px;
+  margin: 0 -30px;
+  display: flex;
 }
 
 .services__item {
+  width: 33%;
+  margin: 0 15px;
   background-color: #f9f9f9;
   text-align: center;
   height: 365px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 24px 36px 40px;
+  padding: 25px 36px 40px;
   box-shadow: 0 7px 27px #5b595924;
+  position: relative;
+  &::before {
+    position: absolute;
+    content: '';
+    width: 65px;
+    height: 65px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: url(../img/services__item-1.png) no-repeat center;
+  }
+  &:nth-child(2)::before {
+    background: url(../img/services__item-2.png) no-repeat center;
+  }
+  &:nth-child(3)::before {
+    background: url(../img/services__item-3.png) no-repeat center;
+  }
   &:hover {
     background-color: #fff;
     box-shadow: 0 7px 27px #5b595940;
-  }
-  &__icon {
-    margin-bottom: 27px;
   }
   &__title {
     font-size: 18px;
@@ -284,6 +333,7 @@ nav.menu a {
     line-height: 24px;
     font-weight: 500;
     margin-bottom: 27px;
+    padding-top: 76px;
   }
   &__subtitle {
     font-family: $pt-serif;
@@ -310,7 +360,7 @@ nav.menu a {
 
 
 .about {
-  background: url(../img/about_bg.jpg) center fixed;
+  background: url(../img/about_bg.jpg) no-repeat center center fixed / cover;
   padding: 41px 0 47px;
   color: #fff;
   &__title {
@@ -321,7 +371,7 @@ nav.menu a {
   }
   &__subtitle {
     font-family: $pt-serif;
-    color: #d3d2d2;
+    color: $lgray;
     line-height: 24px;
     margin-bottom: 28px;
   }
@@ -331,12 +381,295 @@ nav.menu a {
 
 
 
-.consultation {
-  padding: 45px 0 47px;
+.consult {
+  padding-top: 45px;
+  & img {
+    padding-top: 15px;
+  }
 }
 
 option [selected="selected"] {
   width: 10px;
   height: 1px;
   color: #000;
+}
+
+.form {
+  display: flex;
+  margin-left: -15px;
+  color: $form;
+  align-items: stretch;
+  &__left,
+  &__right {
+    display: flex;
+    flex-direction: column;
+  }
+  &__left {
+    margin-right: 28px;
+  }
+  &__right {
+    justify-content: space-between;
+  }
+  & .basic-btn {
+    color: $form;
+  }
+  & input,
+  & select {
+    border: 1px solid #e6e6e6;
+    width: 264px;
+    height: 40px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+  & select {
+    margin-bottom: 0;
+  }
+}
+
+textarea {
+  margin-top: 5px;
+  width: 557px;
+  height: 195px;
+  resize: none;
+  border: 1px solid #e6e6e6;
+}
+
+.form .basic-btn {
+  align-self: flex-end;
+}
+
+
+
+
+
+.advantages {
+  padding: 55px 0 40px;
+  background: url(../img/advantages_bg.jpg) no-repeat center center fixed / cover;
+  color: #fff;
+  text-align: center;
+  line-height: 24px;
+  &__item__title {
+    font-size: 18px;
+    font-family: $myriad;
+    margin-bottom: 10px;
+    padding-top: 60px;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: '';
+      width: 40px;
+      height: 40px;
+      border: 2px solid $yellow;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%)
+    }
+    &::after {
+      position: absolute;
+      content: '\f00c';
+      font-family: 'icomoon';
+      font-size: 14px;
+      line-height: 24px;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &__item__subtitle {
+    font-family: $pt-serif;
+    color: $lgray;
+  }
+}
+
+
+
+
+
+.news {
+  background-color: #f9f9f9;
+  padding: 65px 0 110px;
+  &__slider {
+    margin: 0 -30px;
+    &__quote {
+      cursor: pointer;
+      max-width: 555px;
+      padding: 60px 35px 45px 70px;
+      position: relative;
+      margin: 0 15px;
+      &:before {
+        position: absolute;
+        top: 0;
+        padding: 6.5px 25px;
+        background-color: $yellow;
+        content: '\f10e';
+        font-family: 'icomoon';
+        font-size: 16px;
+        line-height: 18px;
+        color: #fff;
+      }
+      &:hover {
+        background-color: #fff;
+        box-shadow: 0 5px 16px rgba($color: #807f7f, $alpha: .13);
+      }
+    }
+  }
+  & .section__subtitle {
+    margin-bottom: 0;
+  }
+}
+
+.quote__title {
+  font-family: $myriad;
+  font-size: 18px;
+  line-height: 24px;
+  color: $n-title;
+  max-width: 380px;
+  margin-bottom: 10px;
+}
+
+.quote__text {
+  font-family: $pt-serif;
+  color: $subtitle;
+  margin-bottom: 15px;
+}
+
+.quote__author {
+  font-family: $myriad;
+  color: $title;
+}
+
+.news__slider__news {
+  max-width: 263px;
+  margin: 0 15px;
+  position: relative;
+  &::before {
+    position: absolute;
+    content: '';
+    width: 47px;
+    height: 54px;
+    background-color: $yellow;
+    top: 0;
+    left: 10px;
+  }
+  &::after {
+    position: absolute;
+    content: '03.04';
+    font-family: $pt-serif;
+    color: #fff;
+    text-align: center;
+    top: 30px;
+    left: 10px;
+    width: 47px;
+  }
+  img {
+    margin-bottom: 18px;
+  }
+}
+
+.news__title {
+  font-size: 16px;
+  font-weight: 500;
+  color: $n-title;
+  margin-bottom: 10px;
+}
+
+.news__text {
+  font-family: $pt-serif;
+  color: $subtitle;
+}
+
+.news .slick-btn {
+  top: 100%;
+  border: 1px solid #dadada;
+  color: #908e8e;
+  left: 50%;
+  &:hover {
+    border: 1px solid #fff;
+    color: #fff;
+  }
+}
+
+.news .slick-prev {
+  transform: translate(-49px, -100%);
+}
+
+.news .slick-next {
+  transform: translate(9px, -100%);
+}
+
+.news .slick-list {
+  padding: 45px 0 75px;
+}
+
+
+
+
+
+.footer__top {
+  background-color: #595959;
+  padding: 20px 0;
+}
+
+.footer__top__wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer__contacts,
+.footer__map {
+  margin: 0 -15px;
+}
+
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 33%;
+}
+
+.footer__contacts__title {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 36px;
+  margin-bottom: 10px;
+}
+
+.footer__contacts__subtitle {
+  color: $lgray;
+  margin-bottom: 25px;
+}
+
+.footer__contacts .phone,
+.footer__contacts .mail,
+.footer__contacts .adress {
+  font-size: 16px;
+  color: #fff;
+  padding: 7px 0 7px 35px;
+  line-height: 24px;
+  position: relative;
+}
+
+.footer__contacts .adress::after {
+  position: absolute;
+  content: '\f041';
+  font-family: 'icomoon';
+  left: 0;
+  color: $yellow;
+}
+
+.footer__contacts .btn-consalt {
+  margin-bottom: 10px;
+}
+
+.footer__map {
+  align-self: center;
+}
+
+.footer__bottom {
+  background-color: #303030;
+  color: #fff;
+  line-height: 45px;
+  text-align: center;
 }
