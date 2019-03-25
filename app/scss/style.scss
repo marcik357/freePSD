@@ -6,7 +6,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  transition: .3s linear;
+  transition: all .3s linear;
 }
 
 body {
@@ -160,7 +160,8 @@ nav.menu a {
 
 .main__slider__item1,
 .main__slider__item2 {
-  padding: 125px 0 188px;
+  height: calc(100vh - 140px);
+  padding-top: 20vh;
   display: flex;
   flex-direction: column;
   background: url(../img/main__slider_bg-1.jpg) center no-repeat / cover;
@@ -186,14 +187,6 @@ nav.menu a {
   }
 }
 
-.slick-prev{
-  left: 50px;
-}
-
-.slick-next {
-  right: 50px;
-}
-
 .slick-prev::before {
   content: '\f104';
 }
@@ -207,7 +200,9 @@ nav.menu a {
   font-weight: 500;
   font-size: 30px;
   line-height: 36px;
+  margin: 0 auto;
   margin-bottom: 15px;
+  letter-spacing: 1.5px;
 }
 
 .slider__subtitle {
@@ -303,7 +298,7 @@ nav.menu a {
 }
 
 .services__item {
-  max-width: 33%;
+  width: 33.333%;
   margin: 0 15px;
   background-color: #f9f9f9;
   text-align: center;
@@ -406,6 +401,7 @@ option [selected="selected"] {
 .form {
   display: flex;
   margin-left: -15px;
+  margin-right: -15px;
   color: $form;
   align-items: stretch;
   &__left,
@@ -414,10 +410,12 @@ option [selected="selected"] {
     flex-direction: column;
   }
   &__left {
-    margin-right: 28px;
+    margin-right: 30px;
+    width: 25%;
   }
   &__right {
     justify-content: space-between;
+    width: 75%;
   }
   & .basic-btn {
     color: $form;
@@ -425,7 +423,7 @@ option [selected="selected"] {
   & input,
   & select {
     border: 1px solid #e6e6e6;
-    width: 264px;
+    width: 100%;
     height: 40px;
     margin-top: 5px;
     margin-bottom: 15px;
@@ -437,10 +435,11 @@ option [selected="selected"] {
 
 textarea {
   margin-top: 5px;
-  width: 557px;
+  width: 100%;
   height: 195px;
   resize: none;
   border: 1px solid #e6e6e6;
+  margin-bottom: 15px;
 }
 
 .form .basic-btn {
@@ -498,7 +497,7 @@ textarea {
   background-color: #f9f9f9;
   padding: 65px 0 110px;
   &__slider {
-    margin: 0 -30px;
+    margin: 0 -15px 0 -30px;
     &__quote {
       cursor: pointer;
       max-width: 555px;
@@ -679,6 +678,6 @@ textarea {
 .footer__bottom {
   background-color: #303030;
   color: #fff;
-  line-height: 45px;
   text-align: center;
+  padding: 10px 15px;
 }
