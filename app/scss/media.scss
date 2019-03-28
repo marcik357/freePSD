@@ -32,7 +32,9 @@
   }
 
 
-
+  .news__item {
+    display: none;
+  }
   // .news__slider {
   //   margin-right: -15px;
   // }
@@ -47,6 +49,10 @@
 
   .main.slick-next {
     left: calc(50% + 480px - 40px);
+  }
+
+  .news__item {
+    display: block;
   }
 }
 
@@ -257,10 +263,17 @@
     margin: 20px 0;
   }
 
+  .news__items {
+    flex-wrap: wrap;
+    margin-left: -30px;
+  }
 
 
-  .news__item {
-    display: none;
+
+  .news__slider {
+    padding-bottom: 60px;
+    margin-right: -15px;
+    margin-bottom: 40px;
   }
 }
 
@@ -303,7 +316,10 @@
 
 .news__slider__quote {
   padding: 60px 20px 20px 20px;
-  max-width: 350px;
+}
+
+.news__item {
+  width: 100%;
 }
 
 
