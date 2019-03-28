@@ -615,15 +615,26 @@ textarea {
 
 .news {
   background-color: #f9f9f9;
-  padding: 65px 0 110px;
+  padding: 68px 0 34px;
+  .section__heading {
+    margin-bottom: 45px;
+  }
+  .slick-list {
+    // padding: 45px 0 75px;
+    // margin-left: -15px;
+    background-color: #fff;
+    box-shadow: 0 5px 16px rgba($color: #807f7f, $alpha: .13);
+  }
   &__slider {
-    margin: 0 -15px 0 -30px;
+    margin-left: -15px;
+    padding-bottom: 75px;
+    position: relative;
     &__quote {
       cursor: pointer;
       max-width: 555px;
       padding: 60px 35px 45px 70px;
       position: relative;
-      margin: 0 15px;
+      // margin: 0 15px;
       &:before {
         position: absolute;
         top: 0;
@@ -666,11 +677,17 @@ textarea {
   color: $title;
 }
 
+.news__items {
+  display: flex;
+  margin-left: -15px;
+  margin-right: -30px;
+}
+
 .news__item {
-  max-width: 263px;
   position: relative;
-  &:last-child {
-    ma
+  padding: 0 15px;
+  &:first-child {
+    display: block;
   }
   &::before {
     position: absolute;
@@ -678,8 +695,7 @@ textarea {
     width: 47px;
     height: 54px;
     background-color: $yellow;
-    top: 0;
-    left: 10px;
+    left: 25px;
   }
   &::after {
     position: absolute;
@@ -688,7 +704,7 @@ textarea {
     color: #fff;
     text-align: center;
     top: 30px;
-    left: 10px;
+    left: 25px;
     width: 47px;
   }
   img {
@@ -713,7 +729,8 @@ textarea {
   top: 100%;
   border: 1px solid #dadada;
   color: #908e8e;
-  left: 50%;
+  right: 0;
+  transform: translate(0, -100%);
   &:hover {
     border: 1px solid #fff;
     color: #fff;
@@ -721,15 +738,7 @@ textarea {
 }
 
 .news .slick-prev {
-  transform: translate(-49px, -100%);
-}
-
-.news .slick-next {
-  transform: translate(9px, -100%);
-}
-
-.news .slick-list {
-  padding: 45px 0 75px;
+  right: 60px;
 }
 
 
