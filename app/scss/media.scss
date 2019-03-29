@@ -158,7 +158,14 @@
 
 
 
+  .footer__top__wrapper {
+    margin: 0 -15px;
+  }
 
+  .footer__contacts,
+  .footer__map {
+    margin: 0;
+  }
 
   .footer__contacts {
     max-width: 100%;
@@ -275,6 +282,10 @@
     margin-right: -15px;
     margin-bottom: 40px;
   }
+
+
+
+
 }
 
 
